@@ -1,6 +1,6 @@
 ﻿namespace pry.fmrGimnasioSiglo
 {
-    partial class Form1
+    partial class fmrInscripcion
     {
         /// <summary>
         ///  Required designer variable.
@@ -38,7 +38,7 @@
             cboTurno = new ComboBox();
             lblPlan = new Label();
             lblTurno = new Label();
-            textBox1 = new TextBox();
+            txtCantidadDeMeses = new TextBox();
             lblMeses = new Label();
             chkCasillero = new CheckBox();
             gpxPlan = new GroupBox();
@@ -61,6 +61,8 @@
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(136, 23);
             txtNombre.TabIndex = 0;
+            txtNombre.TextChanged += txtNombre_TextChanged;
+            txtNombre.KeyPress += txtNombre_KeyPress;
             // 
             // txtEdad
             // 
@@ -69,6 +71,8 @@
             txtEdad.Name = "txtEdad";
             txtEdad.Size = new Size(67, 23);
             txtEdad.TabIndex = 1;
+            txtEdad.TextChanged += txtNombre_TextChanged;
+            txtEdad.KeyPress += txtEdad_KeyPress;
             // 
             // chkEstudiante
             // 
@@ -154,13 +158,15 @@
             lblTurno.TabIndex = 7;
             lblTurno.Text = "Turno :";
             // 
-            // textBox1
+            // txtCantidadDeMeses
             // 
-            textBox1.Location = new Point(143, 101);
-            textBox1.MaxLength = 2;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(54, 23);
-            textBox1.TabIndex = 8;
+            txtCantidadDeMeses.Location = new Point(143, 101);
+            txtCantidadDeMeses.MaxLength = 2;
+            txtCantidadDeMeses.Name = "txtCantidadDeMeses";
+            txtCantidadDeMeses.Size = new Size(54, 23);
+            txtCantidadDeMeses.TabIndex = 8;
+            txtCantidadDeMeses.TextChanged += txtNombre_TextChanged;
+            txtCantidadDeMeses.KeyPress += txtCantidadDeMeses_KeyPress;
             // 
             // lblMeses
             // 
@@ -170,6 +176,7 @@
             lblMeses.Size = new Size(113, 15);
             lblMeses.TabIndex = 9;
             lblMeses.Text = "Cantidad de Meses :";
+            lblMeses.Click += lblMeses_Click;
             // 
             // chkCasillero
             // 
@@ -186,7 +193,7 @@
             // 
             gpxPlan.Controls.Add(chkCasillero);
             gpxPlan.Controls.Add(lblMeses);
-            gpxPlan.Controls.Add(textBox1);
+            gpxPlan.Controls.Add(txtCantidadDeMeses);
             gpxPlan.Controls.Add(lblTurno);
             gpxPlan.Controls.Add(lblPlan);
             gpxPlan.Controls.Add(cboTurno);
@@ -260,6 +267,7 @@
             btnCalcular.TabIndex = 17;
             btnCalcular.Text = "&Calcular";
             btnCalcular.UseVisualStyleBackColor = true;
+            btnCalcular.Click += btnCalcular_Click;
             // 
             // btnLimpiar
             // 
@@ -269,8 +277,9 @@
             btnLimpiar.TabIndex = 18;
             btnLimpiar.Text = "&Limpiar";
             btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
-            // Form1
+            // fmrInscripcion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -282,9 +291,10 @@
             Controls.Add(gpxDatosPersonales);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
-            Name = "Form1";
+            Name = "fmrInscripcion";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gimnasio Siglo - Incripciones";
+            Load += Form1_Load;
             gpxDatosPersonales.ResumeLayout(false);
             gpxDatosPersonales.PerformLayout();
             gpxPlan.ResumeLayout(false);
@@ -306,7 +316,7 @@
         private ComboBox cboTurno;
         private Label lblPlan;
         private Label lblTurno;
-        private TextBox textBox1;
+        private TextBox txtCantidadDeMeses;
         private Label lblMeses;
         private CheckBox chkCasillero;
         private GroupBox gpxPlan;
